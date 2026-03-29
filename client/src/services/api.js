@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://edu-merge-4y22.vercel.app/api',
   headers: { 'Content-Type': 'application/json' }
 });
 
