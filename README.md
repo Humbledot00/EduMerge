@@ -11,21 +11,7 @@ A web-based Admission Management System for colleges to manage programs, quotas,
 | Database  | MongoDB (local)                |
 | Auth      | JWT (role-based)               |
 
-## AI Disclosure
 
-This project was built with **GitHub Copilot (Claude Sonnet 4.6)** AI assistance.
-
-AI-assisted parts:
-- Full project scaffolding and boilerplate
-- Mongoose schema definitions
-- Express route logic (CRUD, business rules)
-- React component structure and UI layout
-- Tailwind CSS styling classes
-
-Human-reviewed / verified:
-- Business logic correctness (quota validation, atomic seat allocation, admission number format)
-- Security (JWT auth, role-based access control, input sanitization)
-- Data flow and edge cases (race condition prevention in seat allocation)
 
 ---
 
