@@ -8,7 +8,25 @@ connectDB();
 
 const app = express();
 
-app.use(cors({ origin: process.env.CLIENT_URL || 'http://localhost:5173' || 'https://edu-merge-alpha.vercel.app', credentials: true }));
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  'http://localhost:5173',
+  'https://edu-merge-alpha.vercel.app'
+].filter(Boolean);
+
+const corsOptions = {
+  origin(origin, callback) {
+    // Allow requests with no origin (e.g., server-to-server, mobile clients)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) return callback(null, true);
+    const msg = `CORS policy: origin ${origin} not allowed`;
+    return callback(new Error(msg), false);
+  },
+  credentials: true
+};
+
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 
 // Single entry point for all API routes
